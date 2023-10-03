@@ -36,7 +36,6 @@ app.post('/register', async (req, res) => {
     }
 });
 
-// Diğer kodlar...
 
 io.on('connection', (socket) => {
     console.log('a user connected');
