@@ -4,7 +4,7 @@ const { Server } = require("socket.io");
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('./userModel'); // userModel.js dosyasını içe aktarın
-
+require('dotenv').config();
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server);
@@ -13,7 +13,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 
 // MongoDB'ye bağlanma kodu
-const url = 'mongodb+srv://cengizhankoserr:DreY7Fk744oSbMZX@movielens.oaqf0tu.mongodb.net/';
+const url = process.env.API_KEY;
 
 mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
